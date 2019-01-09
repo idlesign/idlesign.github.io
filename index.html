@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>idlesign</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.18/css/dataTables.bootstrap4.min.css">
+
+</head>
+<body>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.18/js/dataTables.bootstrap4.min.js"></script>
+
+
+    <div class="container">
+        <div class="row mt-4">
+            <div class="col"><h1>idlesign</h1></div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-1"></div>
+            <div class="col">
+                <h4>Interesting info for some maintained apps</h4>
+                <table id="table-apps" class="display" width="100%"></table>
+            </div>
+            <div class="col-1"></div>
+        </div>
+    </div>
+
+    <script type="application/javascript">
+
+        $(function(){
+
+            var apps = [
+                    'django-sitetree',
+                    'django-sitemessage',
+                    'django-sitegate',
+                    'django-yaturbo',
+                    'django-admirarchy',
+                    'django-siteflags',
+                    'django-oauthost',
+                    'django-sitecats',
+                    'django-sitemetrics',
+                    'django-siteblocks',
+                    'django-sitetables',
+                    'django-siteprefs',
+                    'django-xross',
+                    'django-etc',
+                    'django-dev',
+                    'pytest-djangoapp',
+                    'pytest-stub',
+                    'deluge-webapi',
+                    'uwsgiconf',
+                    'dbf_light',
+                    'deflacue',
+                    'letmehear',
+                    'mednsktest',
+                    'vininfo',
+                    'steampak',
+                    'keybind',
+                    'envbox',
+                    'srptools',
+                    'pycbrf',
+                    'pytakeout',
+                    'pysyge',
+                    'pypusher',
+                    'diadump',
+                    'torrt',
+                    'torrentool',
+                    'makeapp',
+                    ''
+                ],
+                owner = 'idlesign';
+
+            function getBadge(realm, appname) {
+                return '<img src="https://img.shields.io/' + realm + '/' + appname + '.svg">';
+            }
+
+            function getRepoLink(appname) {
+                return '<a href="https://github.com/' + owner + '/' + appname + '/">' + appname + '</a>';
+            }
+
+            function generateTableData(apps) {
+                var data = [];
+
+                $.each(apps, function(idx, appname){
+                    if (appname) {
+                        data.push([
+                            getRepoLink(appname),
+                            getBadge('pypi/dm', appname),
+                            getBadge('github/contributors/' + owner, appname),
+                            getBadge('github/issues/' + owner, appname),
+                            getBadge('github/stars/' + owner, appname),
+                            getBadge('github/forks/' + owner, appname),
+                            getBadge('librariesio/sourcerank/pypi/', appname),
+                            getBadge('librariesio/dependent-repos/pypi/', appname),
+                        ]);
+                    }
+                });
+
+                return data;
+            }
+
+            $(document).ready(function() {
+                $('#table-apps').DataTable({
+                    data: generateTableData(apps),
+                    paging: false,
+                    columns: [
+                        { title: 'Title' },
+                        { title: 'PyPI' },
+                        { title: 'Contributors' },
+                        { title: 'Issues' },
+                        { title: 'Stars' },
+                        { title: 'Forks' },
+                        { title: 'Rank' },
+                        { title: 'Dependents' },
+                    ]
+                });
+            });
+
+        });
+
+    </script>
+
+</body>
+</html>
