@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LBC - Last Breath Campaign. Python 2</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <style type="text/css">
+        textarea {
+            resize: none;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="container">
+
+        <div class="row mt-4">
+            <div class="col"><h1>LBC &mdash; Last Breath Campaign. Python 2</h1></div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col">
+
+                <div class="">
+                    <a href="https://idlesign.github.io/lbc/"><img src="py2-lbc.svg" title="Last Breath Campaign. Python 2"></a>
+                </div>
+
+                <div class="mt-4">
+                    <h2>About</h2>
+                    <p>Projects using the badge will:</p>
+                    <ol>
+                        <li>Drop QA (automated tests, etc) and user support for Python 2 at any moment during <strong>2019</strong>;</li>
+                        <li>Drop Python 2 compatibility shims at any moment during <strong>2020</strong>.</li>
+                    </ol>
+
+                    <p class="small text-muted float-right"><a href="https://pythonclock.org/">* Python 2 countdown</a></p>
+                    <p>Be ready.</p>
+
+                </div>
+
+                <div class="card border-success mt-5">
+                    <div class="card-body">
+                        <h3 class="card-title">I want to participate</h3>
+
+                        <p class="card-text">
+                            Simply add the badge into <strong>README</strong> file of your project.
+                        </p>
+
+                        <div class="accordion" id="formats">
+                            <div class="card">
+                                <div class="card-header"><h2 class="mb-0"><button class="btn btn-link" data-toggle="collapse" data-target="#copy-rst-box">reStructuredText</button></h2></div>
+                                <div id="copy-rst-box" class="collapse" data-parent="#formats"><div id="copy-rst" class="card-body"></div></div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header"><h2 class="mb-0"><button class="btn btn-link" data-toggle="collapse" data-target="#copy-md-box">Markdown</button></h2></div>
+                                <div id="copy-md-box" class="collapse" data-parent="#formats"><div id="copy-md" class="card-body"></div></div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header"><h2 class="mb-0"><button class="btn btn-link" data-toggle="collapse" data-target="#copy-html-box">HTML</button></h2></div>
+                                <div id="copy-html-box" class="collapse" data-parent="#formats"><div id="copy-html" class="card-body"></div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+        <div class="row mt-5 mb-5">
+            <div class="col small">
+
+                <div>Raw link to craft this badge using <a href="https://shields.io/">Shield.io</a>:</div>
+                <div id="copy-raw"></div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+
+    <script type="application/javascript">
+
+        $(function(){
+
+
+            function addCopyBox(target, code, rows) {
+
+                var id = target.replace('code-', ''),
+                    $el = $(
+                    '<div class="input-group">' +
+                    '<textarea id="' + id + '" class="form-control" rows="' + (rows || 1) + '">' + code + '</textarea>' +
+                    '<div class="input-group-append">' +
+                    '<button class="btn btn-outline-primary" data-clipboard-target="#' + id + '" title="Copy to clipboard"><i class="fa fa-clipboard"></i></button>' +
+                    '</div>' +
+                    '</div>');
+
+                $('#' + target).append($el);
+
+            }
+
+            var title = 'LBC Python 2',
+                urlPage = 'https://idlesign.github.io/lbc/',
+                urlBadge = urlPage + 'py2-lbc.svg';
+
+            addCopyBox(
+                'copy-raw',
+                'https://img.shields.io/badge/LBC_Python_2-19/20-red.svg?style=for-the-badge&logo=python&logoColor=fff&link=' + urlPage
+            );
+
+            addCopyBox('copy-rst', '.. image:: ' + urlBadge + '\n   :target: ' + urlPage + '\n   :alt: ' + title, 3);
+            addCopyBox('copy-md', '[![' + title + '](' + urlBadge + ')](' + urlPage + ')');
+            addCopyBox('copy-html', '<a href="' + urlPage + '" title="' + title + '"><img src="' + urlBadge + '"></a>');
+
+            new ClipboardJS('.btn');
+
+        });
+
+    </script>
+
+</body>
+</html>
