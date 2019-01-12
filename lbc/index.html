@@ -114,9 +114,9 @@
                 'https://img.shields.io/badge/LBC_Python_2-19/20-red.svg?style=for-the-badge&logo=python&logoColor=fff&link=' + urlPage
             );
 
-            addCopyBox('copy-rst', '.. image:: ' + urlBadge + '\n   :target: ' + urlPage + '\n   :alt: ' + title, 3);
-            addCopyBox('copy-md', '[![' + title + '](' + urlBadge + ')](' + urlPage + ')');
-            addCopyBox('copy-html', '<a href="' + urlPage + '" title="' + title + '"><img src="' + urlBadge + '"></a>');
+            addCopyBox('copy-rst', '.. image:: ' + urlBadge + '\n   :target: ' + urlPage + '\n   :alt: ' + title + '\n\n----', 5);
+            addCopyBox('copy-md', '[![' + title + '](' + urlBadge + ')](' + urlPage + ')\n\n---', 3);
+            addCopyBox('copy-html', '<a href="' + urlPage + '" title="' + title + '"><img src="' + urlBadge + '"></a><hr>');
 
             new ClipboardJS('.btn');
 
