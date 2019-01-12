@@ -102,22 +102,20 @@
                 return data;
             }
 
-            $(document).ready(function() {
-                $('#table-apps').DataTable({
-                    data: generateTableData(apps),
-                    paging: false,
-                    columns: [
-                        { title: 'Title' },
-                        { title: 'PyPI' },
-                        { title: 'Contributors' },
-                        { title: 'Issues' },
-                        { title: 'Stars' },
-                        { title: 'Forks' },
-                        { title: 'Commit' },
-                        { title: 'Rank' },
-                        { title: 'Dependents' },
-                    ]
-                });
+            $('#table-apps').DataTable({
+                data: generateTableData(apps),
+                paging: false,
+                columns: [
+                    { title: 'Title' },
+                    { title: 'PyPI' },
+                    { title: 'Contributors' },
+                    { title: 'Issues' },
+                    { title: 'Stars' },
+                    { title: 'Forks' },
+                    { title: 'Commit' },
+                    { title: 'Rank' },
+                    { title: 'Dependents' },
+                ]
             });
 
         });
