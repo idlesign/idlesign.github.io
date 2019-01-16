@@ -73,8 +73,8 @@
                 ],
                 owner = 'idlesign';
 
-            function getBadge(realm, appname) {
-                return '<img src="https://img.shields.io/' + realm + '/' + appname + '.svg?style=flat-square">';
+            function getBadge(realm, appname, link) {
+                return '<a href="https://' + link + '"><img src="https://img.shields.io/' + realm + '/' + appname + '.svg?style=flat-square"></a>';
             }
 
             function getRepoLink(appname) {
@@ -88,14 +88,14 @@
                     if (appname) {
                         data.push([
                             getRepoLink(appname),
-                            getBadge('pypi/dm', appname),
-                            getBadge('github/contributors/' + owner, appname),
-                            getBadge('github/issues/' + owner, appname),
-                            getBadge('github/stars/' + owner, appname),
-                            getBadge('github/forks/' + owner, appname),
-                            getBadge('github/last-commit/' + owner, appname),
-                            getBadge('librariesio/sourcerank/pypi/', appname),
-                            getBadge('librariesio/dependent-repos/pypi/', appname),
+                            getBadge('pypi/dm', appname, 'pypi.org/project/' + appname),
+                            getBadge('github/contributors/' + owner, appname, 'github.com/' + owner + '/' + appname + '/graphs/contributors'),
+                            getBadge('github/issues/' + owner, appname, 'github.com/' + owner + '/' + appname + '/issues'),
+                            getBadge('github/stars/' + owner, appname, 'github.com/' + owner + '/' + appname + '/stargazers'),
+                            getBadge('github/forks/' + owner, appname, 'github.com/' + owner + '/' + appname + '/network/members'),
+                            getBadge('github/last-commit/' + owner, appname, 'github.com/' + owner + '/' + appname),
+                            getBadge('librariesio/sourcerank/pypi/', appname, 'libraries.io/github/' + owner + '/' + appname + '/sourcerank'),
+                            getBadge('librariesio/dependent-repos/pypi/', appname, 'libraries.io/github/' + owner + '/' + appname),
                         ]);
                     }
                 });
